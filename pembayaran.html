@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="toko.html">🏠 Home</a></li>
+        <li><a href="wishlist.html">💖 Wishlist</a></li>
+        <li><a href="promosi.html">🎉 Promosi</a></li>
+        <li><a href="cta.html">⚡ Penawaran Spesial</a></li>
+        <li><a href="keranjang.html">🛒 Troli</a></li>
+        <li><a href="pembayaran.html">💳 Pembayaran</a></li>
+      </ul>
+    </nav>
+
+    <h1>💳 Pembayaran</h1>
+
+    <div id="produk-dibeli" class="pembayaran-produk"></div>
+
+    <form id="form-pembayaran" class="form-pembayaran">
+      <h2>📋 Data Pembeli</h2>
+      <label>Nama Lengkap:</label>
+      <input type="text" id="nama" required />
+
+      <label>Email:</label>
+      <input type="email" id="email" required />
+
+      <label>Alamat Pengiriman:</label>
+      <textarea id="alamat" required></textarea>
+
+      <div class="total-harga" id="total"></div>
+
+      <button type="submit" class="btn-konfirmasi">
+        Konfirmasi Pembayaran
+      </button>
+    </form>
+
+    <script>
+      // Ambil produk dari localStorage
+      const produk = JSON.parse(localStorage.getItem("produk_dibeli"));
+      const produkDiv = document.getElementById("produk-dibeli");
+      const totalDiv = document.getElementById("total");
+
+      if (produk) {
+        produkDiv.innerHTML = `
+        <h2>🛍️ Produk yang Dibeli</h2>
+        <div class="produk-item">
+          <img src="${produk.gambar}" alt="${
+          produk.nama
+        }" class="gambar-produk" />
+          <div>
+            <h3>${produk.nama}</h3>
+            <p>Rp ${produk.harga.toLocaleString()}</p>
+          </div>
+        </div>
+      `;
+        totalDiv.innerText = `Total Pembayaran: Rp ${produk.harga.toLocaleString()}`;
+      } else {
+        produkDiv.innerHTML = "<p>Tidak ada produk yang dipilih.</p>";
+        document.getElementById("form-pembayaran").style.display = "none";
+      }
+
+      // Simulasi pembayaran
+      document
+        .getElementById("form-pembayaran")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Pembayaran berhasil!\nTerima kasih sudah berbelanja.");
+          localStorage.removeItem("produk_dibeli");
+          window.location.href = "toko.html";
+        });
+    </script>
+  </body>
+</html>

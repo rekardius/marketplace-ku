@@ -1,0 +1,151 @@
+/* Reset dasar */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Header */
+.header {
+  background-color: #ff5722;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0 0 10px;
+}
+
+/* Produk Grid */
+.produk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.produk {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  text-align: center;
+}
+
+.produk:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.produk img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.produk h3 {
+  margin: 10px 0 5px;
+}
+
+.produk p {
+  color: #ff5722;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Tombol aksi */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-container button {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-troli {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn-beli {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-troli:hover {
+  background-color: #1976d2;
+}
+
+.btn-beli:hover {
+  background-color: #388e3c;
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+  .produk-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar ul {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+.btn-wishlist {
+  background-color: #ff4081;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-wishlist:hover {
+  background-color: #e91e63;
+}

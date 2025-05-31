@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login Shopee Sederhana</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="center">
+    <div class="login-box">
+      <h2>Masuk ke Toko</h2>
+      <input type="text" id="nama" placeholder="Nama" />
+      <input type="email" id="email" placeholder="Email" />
+      <button onclick="login()">Masuk</button>
+    </div>
+
+    <script>
+      function login() {
+        const nama = document.getElementById("nama").value;
+        const email = document.getElementById("email").value;
+        if (nama && email) {
+          localStorage.setItem("user", JSON.stringify({ nama, email }));
+          window.location.href = "toko.html";
+        } else {
+          alert("Nama dan Email wajib diisi!");
+        }
+      }
+    </script>
+  </body>
+</html>

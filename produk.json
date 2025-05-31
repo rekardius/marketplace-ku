@@ -1,0 +1,52 @@
+[
+  {
+    "nama": "Kaos Polos Hitam",
+    "harga": 45000,
+    "gambar": "gambar/kaos1.jpg"
+  },
+  {
+    "nama": "Kaos Putih Basic",
+    "harga": 40000,
+    "gambar": "gambar/kaos2.jpg"
+  },
+  {
+    "nama": "Kemeja Lengan Panjang",
+    "harga": 75000,
+    "gambar": "gambar/kemeja1.jpg"
+  },
+  {
+    "nama": "Sweater Hoodie",
+    "harga": 120000,
+    "gambar": "gambar/hoodie.jpg"
+  },
+  {
+    "nama": "Celana Jeans Pria",
+    "harga": 98000,
+    "gambar": "gambar/jeans1.jpg"
+  },
+  {
+    "nama": "Celana Pendek Santai",
+    "harga": 55000,
+    "gambar": "gambar/shorts1.jpg"
+  },
+  {
+    "nama": "Sepatu Sneakers",
+    "harga": 175000,
+    "gambar": "gambar/sneakers.jpg"
+  },
+  {
+    "nama": "Tas Ransel Simple",
+    "harga": 88000,
+    "gambar": "gambar/tas1.jpg"
+  },
+  {
+    "nama": "Topi Fashion",
+    "harga": 35000,
+    "gambar": "gambar/topi1.jpg"
+  },
+  {
+    "nama": "Jaket Bomber",
+    "harga": 140000,
+    "gambar": "gambar/jaket.jpg"
+  }
+]

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Keranjang Belanja</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="toko.html">🏠 Home</a></li>
+        <li><a href="wishlist.html">💖 Wishlist</a></li>
+        <li><a href="promosi.html">🎉 Promosi</a></li>
+        <li><a href="cta.html">⚡ Penawaran Spesial</a></li>
+        <li><a href="keranjang.html">🛒 Troli</a></li>
+        <li><a href="pembayaran.html">💳 Pembayaran</a></li>
+      </ul>
+    </nav>
+
+    <h1>🛒 Keranjang Belanja</h1>
+
+    <div id="troli-container" class="troli-grid"></div>
+    <div class="total-harga" id="total-harga"></div>
+
+    <script>
+      // Tampilkan isi troli
+      function tampilkanTroli() {
+        const troli = JSON.parse(localStorage.getItem("troli")) || [];
+        const container = document.getElementById("troli-container");
+        const totalEl = document.getElementById("total-harga");
+
+        container.innerHTML = "";
+        totalEl.innerHTML = "";
+
+        if (troli.length === 0) {
+          container.innerHTML = "<p>Troli kosong.</p>";
+          return;
+        }
+
+        let total = 0;
+
+        troli.forEach((item, index) => {
+          total += item.harga;
+
+          const itemDiv = document.createElement("div");
+          itemDiv.classList.add("troli-item");
+          itemDiv.innerHTML = `
+          <img src="${item.gambar}" alt="${item.nama}" class="troli-gambar" />
+          <div class="troli-info">
+            <h3>${item.nama}</h3>
+            <p>Rp ${item.harga.toLocaleString()}</p>
+            <div class="btn-group">
+              <button onclick="hapusDariTroli(${index})" class="btn-hapus">🗑️ Hapus</button>
+              <button onclick="beliSatuProduk(${index})" class="btn-beli">💳 Beli</button>
+            </div>
+          </div>
+        `;
+          container.appendChild(itemDiv);
+        });
+
+        totalEl.textContent = `Total: Rp ${total.toLocaleString()}`;
+      }
+
+      // Hapus produk dari troli
+      function hapusDariTroli(index) {
+        const troli = JSON.parse(localStorage.getItem("troli")) || [];
+        troli.splice(index, 1);
+        localStorage.setItem("troli", JSON.stringify(troli));
+        tampilkanTroli();
+      }
+
+      // Beli satu produk dan simpan ke localStorage
+      function beliSatuProduk(index) {
+        const troli = JSON.parse(localStorage.getItem("troli")) || [];
+        const produk = troli[index];
+        localStorage.setItem("produk_dibeli", JSON.stringify(produk));
+        window.location.href = "pembayaran.html";
+      }
+
+      window.onload = tampilkanTroli;
+    </script>
+  </body>
+</html>
